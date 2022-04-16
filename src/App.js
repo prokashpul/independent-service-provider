@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Error from "./Components/Pages/Error/Error";
 import Home from "./Components/Pages/Home/Home/Home";
-import Header from "./Components/Sheared/Header/Header/Header/Header";
+import Header from "./Components/Sheared/Header/Header/Header";
 
 function App() {
   return (

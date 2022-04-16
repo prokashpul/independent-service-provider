@@ -1,5 +1,5 @@
 import React from "react";
-import NavMenu from "../../NavMenus/NavMenu";
+import NavMenu from "../NavMenus/NavMenu";
 
 const Header = () => {
   return (
