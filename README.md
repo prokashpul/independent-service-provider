@@ -15,3 +15,5 @@
 > 5.  npm install --save react-toastify
 > 6.  npm install --save react-spinners
 > 7.  npm install --save @emotion/react
+> 8.  npm install react-slick --save
+> 9.  npm install slick-carousel --save

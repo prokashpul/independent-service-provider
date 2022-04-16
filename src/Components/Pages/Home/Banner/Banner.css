@@ -1,0 +1,74 @@
+.slick-slider {
+  width: 100%;
+}
+
+.slide img {
+  height: 85vh;
+  width: 100%;
+}
+.slick-next {
+  right: 30px;
+  z-index: 99;
+}
+.slick-prev {
+  left: 20px;
+  z-index: 99;
+}
+.slick-next::before,
+.slick-prev::before {
+  font-size: 35px;
+}
+.slick-dots {
+  bottom: 40px;
+}
+.slick-dots li {
+  margin: 0 15px;
+}
+.slick-dots li button:before {
+  content: "-";
+  width: 40px;
+  height: 10px;
+  font-size: 100px;
+  color: var(--white-color);
+}
+.slick-dots li.slick-active button:before {
+  color: var(--primary-color);
+  width: 10px;
+}
+
+.slide {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-title {
+  position: absolute;
+  z-index: 999;
+  background-color: rgba(9, 23, 23, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-title h2 {
+  font-size: 4rem;
+  color: var(--white-color);
+  max-width: 777px;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+@media (max-width: 677px) {
+  .slide img {
+    height: 50vh;
+    width: 100%;
+  }
+  .overlay-title h2 {
+    font-size: 2rem;
+    width: 80%;
+  }
+}

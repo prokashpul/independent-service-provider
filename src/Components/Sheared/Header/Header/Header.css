@@ -2,4 +2,5 @@
   position: sticky;
   top: 0;
   background-color: var(--white-color);
+  z-index: 9999;
 }
