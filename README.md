@@ -1,8 +1,8 @@
 # ProWeb wedding photographer
 
-## `Live Site link - https://proweb-wedding-photographer.web.app/`
+## Live Site link - https://proweb-wedding-photographer.web.app/
 
-## `Github Link - https://github.com/programming-hero-web-course-4/independent-service-provider-prokashpul`
+## Github Link - https://github.com/programming-hero-web-course-4/independent-service-provider-prokashpul
 
 ## About This Project :
 
