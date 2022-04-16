@@ -1,0 +1,54 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 10px;
+}
+
+.login {
+  width: 677px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  border-radius: 10px;
+}
+.login h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+.login input {
+  width: 100%;
+  height: 54px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  color: var(--primary-color);
+  border: var(--border);
+  border-radius: 10px;
+}
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+.login-btn a {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.login-btn .btn {
+  width: 35%;
+  height: 45px;
+}
+.forgat-password {
+  cursor: pointer;
+  margin: 10px 0 20px;
+}
+.forgat-password:hover {
+  color: var(--primary-color);
+}
+@media (max-width: 677) {
+  .login {
+    width: 95%;
+  }
+}

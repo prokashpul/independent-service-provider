@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import "./NavMenu.css";
 const NavMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <nav className="nav-menu">
       <div className="mobile-menu">
@@ -27,10 +29,29 @@ const NavMenu = () => {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/blogs">Blogs</NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/blogs"
+          >
+            Blogs
+          </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/about">About</NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/about"
+          >
+            About
+          </NavLink>
+        </li>
+        <li className="nav-item ">
+          <button
+            onClick={() => navigate("/login")}
+            className="btn"
+            to="/login"
+          >
+            Login
+          </button>
         </li>
       </ul>
     </nav>

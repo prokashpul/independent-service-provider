@@ -19,6 +19,7 @@ body {
   --white-color: #fff;
   --border: 1px solid var(--primary-color);
   --transition: all 0.5s ease;
+  --shadow: 0 0 24px rgb(0, 0, 0, 0.2);
 }
 /* most uses style  */
 h1,
@@ -48,8 +49,9 @@ h4 {
   color: var(--white-color);
   font-size: 18px;
   border-radius: 50px;
-  padding: 10px 20px;
+  padding: 8px 20px;
   transition: var(--transition);
+  cursor: pointer;
 }
 .btn:hover {
   background-color: var(--white-color);
