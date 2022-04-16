@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import React, { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
 const Login = () => {
-  const [message, setMessage] = useState("");
+  const emailRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, recoveryError] =
+    useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   if (user) {
     navigate("/");
@@ -19,19 +26,31 @@ const Login = () => {
     const password = event.target.password.value;
     signInWithEmailAndPassword(email, password);
   };
+  const passwordRecovery = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    if (recoveryError || sending) {
+      toast(recoveryError?.message);
+    } else {
+      toast("email send.");
+    }
+  };
+  if (error) {
+    toast(error?.message);
+  }
 
   return (
     <div className=" login-container">
       <div className="login">
         <h2>Log In </h2>
         <form onSubmit={handelSubmit}>
-          {error && error?.message}
           <div className="form-group">
             <input
               type="email"
               name="email"
               id="email"
               placeholder="Email"
+              ref={emailRef}
               required
             />
           </div>
@@ -44,7 +63,9 @@ const Login = () => {
               required
             />
           </div>
-          <div className="forgat-password">Forget Password ?</div>
+          <div onClick={() => passwordRecovery()} className="forgat-password">
+            Forget Password ?
+          </div>
           <div className="login-btn">
             {loading && <p>loading....</p>}
             <button type="submit" className="btn">
@@ -56,6 +77,7 @@ const Login = () => {
           </div>
         </form>
         <SocialLogin></SocialLogin>
+        <ToastContainer></ToastContainer>
       </div>
     </div>
   );
