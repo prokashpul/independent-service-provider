@@ -1,11 +1,11 @@
 import React from "react";
 import NavMenu from "../NavMenus/NavMenu";
-
+import "./Header.css";
 const Header = () => {
   return (
-    <div>
+    <header className="header">
       <NavMenu></NavMenu>
-    </div>
+    </header>
   );
 };
 
