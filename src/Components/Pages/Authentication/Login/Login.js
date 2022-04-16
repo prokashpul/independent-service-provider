@@ -34,6 +34,8 @@ const Login = () => {
     await sendPasswordResetEmail(email);
     if (recoveryError || sending) {
       toast(recoveryError?.message);
+    } else if (email === "") {
+      toast("Please fill up email field");
     } else {
       toast("email send.");
     }
