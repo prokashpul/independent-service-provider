@@ -1,15 +1,16 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../../firebase.init";
 import "./SocialLogin.css";
 const SocialLogin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
+  const from = location.state?.from?.pathname || "/";
   if (user) {
-    toast("loading...");
-    navigate("/");
+    navigate(from, { replace: true });
   }
   if (error) {
     toast(error.message);
@@ -37,6 +38,7 @@ const SocialLogin = () => {
           <img src="https://i.ibb.co/mvGhymg/GitHub.png" alt="Github" />
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

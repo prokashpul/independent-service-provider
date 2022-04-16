@@ -13,3 +13,5 @@
 > 3.  npm install --save react-firebase-hooks
 > 4.  npm install react-icons --save
 > 5.  npm install --save react-toastify
+> 6.  npm install --save react-spinners
+> 7.  npm install --save @emotion/react

@@ -1,23 +1,26 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
+
 const Login = () => {
   const emailRef = useRef("");
+  const location = useLocation();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, recoveryError] =
     useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   if (user) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
 
   const handelSubmit = (event) => {

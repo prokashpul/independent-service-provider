@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Registration.css";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
+import { toast, ToastContainer } from "react-toastify";
 
 const Registration = () => {
-  const [message, setMessage] = useState("");
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [updateProfile, updating] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const from = location.state?.from?.pathname || "/";
+  if (user) {
+    navigate(from, { replace: true });
+  }
   const handelSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -23,16 +28,15 @@ const Registration = () => {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
     } else {
-      setMessage("Password not matched !!");
+      toast("Password not matched !!");
     }
   };
 
-  if (user) {
-    navigate("/");
+  let errorShow;
+  if (error) {
+    errorShow = error.message;
   }
-  if (error || updateError) {
-    setMessage(error.message, updateError.message);
-  }
+  toast(errorShow);
   return (
     <>
       <div className=" registration-container">
@@ -75,7 +79,7 @@ const Registration = () => {
                 required
               />
             </div>
-            <p>{message}</p>
+
             {loading && <p>loading......</p>}
             {updating && <p>updating......</p>}
             <div className="login-btn">
@@ -88,6 +92,7 @@ const Registration = () => {
             </div>
           </form>
           <SocialLogin></SocialLogin>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </>
