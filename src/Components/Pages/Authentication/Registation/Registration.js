@@ -9,7 +9,7 @@ import auth from "../../../../firebase.init";
 const Registration = () => {
   const [message, setMessage] = useState("");
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 

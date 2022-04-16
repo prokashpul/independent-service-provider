@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import "./NavMenu.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../../firebase.init";
+import { signOut } from "firebase/auth";
 const NavMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
+
+  const logOut = () => {
+    signOut(auth);
+  };
 
   return (
     <nav className="nav-menu">
@@ -44,15 +52,23 @@ const NavMenu = () => {
             About
           </NavLink>
         </li>
-        <li className="nav-item ">
-          <button
-            onClick={() => navigate("/login")}
-            className="btn"
-            to="/login"
-          >
-            Login
-          </button>
-        </li>
+        {user ? (
+          <li className="nav-item ">
+            <button onClick={() => logOut()} className="btn" to="/login">
+              Log Out
+            </button>
+          </li>
+        ) : (
+          <li className="nav-item ">
+            <button
+              onClick={() => navigate("/login")}
+              className="btn"
+              to="/login"
+            >
+              Login
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );
