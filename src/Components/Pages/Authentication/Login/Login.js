@@ -12,7 +12,13 @@ const Login = () => {
         <h2>Log In </h2>
         <form onSubmit={handelSubmit}>
           <div className="form-group">
-            <input type="email" name="email" id="email" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
           </div>
           <div className="form-group">
             <input
@@ -20,6 +26,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="password"
+              required
             />
           </div>
           <div className="forgat-password">Forget Password ?</div>

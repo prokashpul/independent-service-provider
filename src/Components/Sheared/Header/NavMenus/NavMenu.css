@@ -63,6 +63,10 @@
   .nav-items .nav-item:hover a {
     color: var(--white-color);
   }
+  .nav-items .nav-item a.active {
+    color: var(--white-color);
+    border-bottom: 2px solid var(--white-color);
+  }
   .menu-icon {
     position: absolute;
     right: 20px;
@@ -73,5 +77,9 @@
   }
   .nav-items.menu-close {
     left: -100%;
+  }
+  .nav-menu .nav-items .btn {
+    background-color: var(--white-color);
+    color: var(--primary-color);
   }
 }
