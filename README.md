@@ -2,6 +2,10 @@
 
 ## Live Site link
 
+## About This Project :
+
+- Firebase authentication (google,facebook,github and email-password auth system add)
+
 ## Technology Used
 
 > 1.  npm install react-router-dom@6

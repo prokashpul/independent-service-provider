@@ -1,11 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Registration.css";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+import auth from "../../../../firebase.init";
+
 const Registration = () => {
-  const handelSubmit = (event) => {
+  const [message, setMessage] = useState("");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const navigate = useNavigate();
+
+  const handelSubmit = async (event) => {
     event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const ConfirmPassword = event.target.ConfirmPassword.value;
+    if (password === ConfirmPassword) {
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName: name });
+    } else {
+      setMessage("Password not matched !!");
+    }
   };
+
+  if (user) {
+    navigate("/");
+  }
+  if (error || updateError) {
+    setMessage(error.message, updateError.message);
+  }
   return (
     <>
       <div className=" registration-container">
@@ -48,6 +75,9 @@ const Registration = () => {
                 required
               />
             </div>
+            <p>{message}</p>
+            {loading && <p>loading......</p>}
+            {updating && <p>updating......</p>}
             <div className="login-btn">
               <button type="submit" className="btn">
                 Sin Up
