@@ -1,5 +1,8 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithFacebook,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../../firebase.init";
@@ -8,14 +11,17 @@ const SocialLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
+  const [signInWithFacebook, fbUser, , FbError] = useSignInWithFacebook(auth);
   const from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (user || fbUser) {
     navigate(from, { replace: true });
   }
   if (error) {
-    toast(error.message);
+    toast(error?.message);
   }
-
+  if (FbError) {
+    toast(FbError?.message);
+  }
   return (
     <div>
       <div className="more-option">
@@ -31,7 +37,11 @@ const SocialLogin = () => {
         >
           <img src="https://i.ibb.co/cvbHMw3/Google.png" alt="google" />
         </div>
-        <div className="facebook" title="Facebook Login">
+        <div
+          onClick={() => signInWithFacebook()}
+          className="facebook"
+          title="Facebook Login"
+        >
           <img src="https://i.ibb.co/MRkYgV0/Facebook.png" alt="facebook" />
         </div>
         <div className="github" title="Github Login">

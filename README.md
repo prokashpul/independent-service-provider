@@ -14,6 +14,7 @@
 - create a about page
 - set dynamic path title
 - mobile and tabs responsive and humbugger mobile menu
+- going one page to other page scroll to top dynamic
 
 ## Technology Used
 
