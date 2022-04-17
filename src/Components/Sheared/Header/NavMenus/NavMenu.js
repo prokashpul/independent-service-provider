@@ -59,15 +59,25 @@ const NavMenu = () => {
             </button>
           </li>
         ) : (
-          <li className="nav-item ">
-            <button
-              onClick={() => navigate("/login")}
-              className="btn"
-              to="/login"
-            >
-              Login
-            </button>
-          </li>
+          <>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/register"
+              >
+                Sin up
+              </NavLink>
+            </li>
+            <li className="nav-item ">
+              <button
+                onClick={() => navigate("/login")}
+                className="btn"
+                to="/login"
+              >
+                Login
+              </button>
+            </li>
+          </>
         )}
       </ul>
     </nav>
