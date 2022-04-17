@@ -1,6 +1,7 @@
 import React from "react";
 import {
   useSignInWithFacebook,
+  useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,15 +13,18 @@ const SocialLogin = () => {
   const location = useLocation();
   const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
   const [signInWithFacebook, fbUser, , FbError] = useSignInWithFacebook(auth);
+  const [signInWithGithub, gitUser, gitError] = useSignInWithGithub(auth);
+
   const from = location.state?.from?.pathname || "/";
-  if (user || fbUser) {
+  if (user || fbUser || gitUser) {
     navigate(from, { replace: true });
   }
   if (error) {
     toast(error?.message);
-  }
-  if (FbError) {
+  } else if (FbError) {
     toast(FbError?.message);
+  } else if (gitError) {
+    toast(gitError?.message);
   }
   return (
     <div>
@@ -44,7 +48,11 @@ const SocialLogin = () => {
         >
           <img src="https://i.ibb.co/MRkYgV0/Facebook.png" alt="facebook" />
         </div>
-        <div className="github" title="Github Login">
+        <div
+          onClick={() => signInWithGithub()}
+          className="github"
+          title="Github Login"
+        >
           <img src="https://i.ibb.co/mvGhymg/GitHub.png" alt="Github" />
         </div>
       </div>
