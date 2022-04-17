@@ -53,11 +53,25 @@ const NavMenu = () => {
           </NavLink>
         </li>
         {user ? (
-          <li className="nav-item ">
-            <button onClick={() => logOut()} className="btn" to="/login">
-              Log Out
-            </button>
-          </li>
+          <>
+            <li className="nav-item ">
+              <button onClick={() => logOut()} className="btn" to="/login">
+                Log Out
+              </button>
+            </li>
+            <li className="nav-item ">
+              <img
+                className="profile-image"
+                title={user?.displayName}
+                src={
+                  user?.photoURL
+                    ? user?.photoURL
+                    : "https://i.ibb.co/nRy98qG/user.png"
+                }
+                alt={user?.displayName}
+              />
+            </li>
+          </>
         ) : (
           <>
             <li className="nav-item">

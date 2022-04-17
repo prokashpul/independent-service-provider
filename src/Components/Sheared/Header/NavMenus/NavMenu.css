@@ -40,6 +40,12 @@
 .menu-icon {
   display: none;
 }
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
 @media (max-width: 677px) {
   .nav-menu {
     flex-direction: column;
