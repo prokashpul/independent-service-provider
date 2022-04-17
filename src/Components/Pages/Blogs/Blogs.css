@@ -1,3 +1,62 @@
 .blogs {
-  min-height: 85vh;
+  width: 1080px;
+  margin: 50px auto;
+}
+.blog-header {
+  background-image: url("https://i.ibb.co/Gk4fSpz/mudit-jain-Pq-Lnm-Bc-SILs-unsplash-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+.blog-header h1 {
+  background-color: rgba(13, 40, 94, 0.547);
+  width: 100%;
+  height: 100%;
+  height: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+}
+.blog {
+  display: grid;
+  grid-template-areas: "l l r r r r";
+  grid-gap: 10px;
+  box-shadow: var(--shadow);
+  margin: 30px 0;
+}
+.blog img {
+  width: 100%;
+}
+.blog-text {
+  padding: 20px 0;
+}
+.blog h2 {
+  margin-bottom: 20px;
+}
+.blog p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+@media (max-width: 920px) {
+  .blogs {
+    width: 90%;
+  }
+}
+@media (max-width: 677px) {
+  .blogs {
+    width: 95%;
+  }
+  .blog {
+    grid-template-areas: "l" "r";
+  }
+  .blog-text {
+    padding: 20px;
+  }
+  .blog-header h1 {
+    height: 250px;
+  }
 }
