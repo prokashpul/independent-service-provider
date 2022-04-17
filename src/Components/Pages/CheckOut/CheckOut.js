@@ -2,8 +2,8 @@ import React from "react";
 import "./CheckOut.css";
 const CheckOut = () => {
   return (
-    <div>
-      <h2>Thank you for Chacked Out this packge</h2>
+    <div className="check-out">
+      <h2>Thank you for checking out this package...</h2>
     </div>
   );
 };

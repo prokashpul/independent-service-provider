@@ -6,7 +6,7 @@ import { useState } from "react";
 import { PropagateLoader } from "react-spinners";
 
 const override = css`
-  display: block;
+  display: flex;
   margin: 0 auto;
   border-color: #42b7e2;
 `;
