@@ -11,7 +11,7 @@ const SingleServices = ({ services }) => {
       <div className="service-image">
         <img src={image} alt={title} />
       </div>
-      <h4 className="price">$ {price}</h4>s
+      <h4 className="price">$ {price}</h4>
       <div className="service-body">
         <h3 className="service-title">{title}</h3>
         <p>{description}</p>
