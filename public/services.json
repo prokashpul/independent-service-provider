@@ -1,8 +1,23 @@
 [
   {
-    "title": "Organizier Wedding",
-    "Description": "Wedding Decoration,Make Up,Hard Photo 10 Album,5 Videos Cinematic,Hard Photo Guarante",
+    "title": "Organizer Wedding",
+    "image": "https://i.ibb.co/wCRdRvc/stylish-happy-bride-and-groom-posing-in-warm-sunset-light-at-wedding-reception.jpg",
+    "description": "Wedding Decoration,Make Up,Hard Photo 10 Album,5 Videos Cinematic,Hard Photo Guarantee",
     "price": 150,
     "id": 1
+  },
+  {
+    "title": "Ceremony Wedding",
+    "image": "https://i.ibb.co/F56T0wP/wedding-venue.jpg",
+    "description": "Hard Photo 10 Album,5 Videos Cinematic,Hard Photo Guarantee,no Wedding Decoration,no Make Up",
+    "price": 100,
+    "id": 2
+  },
+  {
+    "title": "Pra - Wedding",
+    "image": "https://i.ibb.co/PgdnwXv/beautiful-couple-at-wedding-ceremony.jpg",
+    "description": "Exclusive Photo,Exclusive Cinematic,Outdoor Photo,Studio Photo,Large Hard Photo",
+    "price": 50,
+    "id": 3
   }
 ]

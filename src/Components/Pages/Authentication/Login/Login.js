@@ -9,8 +9,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
+import Title from "../../../../Utilities/DynamicTitle";
 
 const Login = () => {
+  Title("Login now");
   const emailRef = useRef("");
   const location = useLocation();
   const [signInWithEmailAndPassword, user, loading, error] =

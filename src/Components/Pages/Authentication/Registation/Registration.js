@@ -6,8 +6,10 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
 import { toast, ToastContainer } from "react-toastify";
+import Title from "../../../../Utilities/DynamicTitle";
 
 const Registration = () => {
+  Title("Create a new account");
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating] = useUpdateProfile(auth);
