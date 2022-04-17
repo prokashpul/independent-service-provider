@@ -9,6 +9,7 @@ import Login from "./Components/Pages/Authentication/Login/Login";
 import Registration from "./Components/Pages/Authentication/Registation/Registration";
 import RequireAuth from "./RequireAuth/RequireAuth";
 import Footer from "./Components/Sheared/Footer/Footer";
+import CheckOut from "./Components/Pages/CheckOut/CheckOut";
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
         <Route
-          path="/about"
+          path="/services/:serviceId"
           element={
             <RequireAuth>
-              <About></About>
+              <CheckOut></CheckOut>
             </RequireAuth>
           }
         ></Route>

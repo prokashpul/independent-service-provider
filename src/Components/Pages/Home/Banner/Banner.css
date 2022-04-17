@@ -64,7 +64,7 @@
 }
 @media (max-width: 677px) {
   .slide img {
-    height: 50vh;
+    height: 60vh;
     width: 100%;
   }
   .overlay-title h2 {
