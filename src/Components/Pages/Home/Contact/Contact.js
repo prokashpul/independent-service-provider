@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="contact-context">
         <h2>Wedding Photo & Video Package</h2>
         <p>Wedding Decoration And Documentation</p>
-        <Link to="/" className="btn">
+        <Link to="/about" className="btn">
           Contact Me
         </Link>
       </div>

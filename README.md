@@ -7,6 +7,13 @@
 ## About This Project :
 
 - Firebase authentication (google,facebook,github and email-password auth system add)
+- Home page add react-slick slider create banner
+- 3 wedding photographer services in home page
+- create dynamic router and set required authentication show page
+- create a blogs page into three question answer
+- create a about page
+- set dynamic path title
+- mobile and tabs responsive and humbugger mobile menu
 
 ## Technology Used
 
