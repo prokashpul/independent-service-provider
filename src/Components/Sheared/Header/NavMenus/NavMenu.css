@@ -15,6 +15,9 @@
   align-items: center;
   gap: 32px;
 }
+.nav-menu h1 {
+  cursor: pointer;
+}
 .nav-items a {
   font-size: 20px;
   font-weight: bold;

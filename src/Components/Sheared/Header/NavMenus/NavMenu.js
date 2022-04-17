@@ -17,7 +17,7 @@ const NavMenu = () => {
   return (
     <nav className="nav-menu">
       <div className="mobile-menu">
-        <h1 className="logo">
+        <h1 onClick={() => navigate("/")} className="logo">
           Pro<span>Web</span>
         </h1>
         <div className="menu-icon" onClick={() => setOpenMenu(!openMenu)}>
