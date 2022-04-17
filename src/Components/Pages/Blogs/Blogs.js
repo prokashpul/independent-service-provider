@@ -1,6 +1,8 @@
 import React from "react";
+import Title from "../../../Utilities/DynamicTitle";
 import "./Blogs.css";
 const Blogs = () => {
+  Title("Our Blogs");
   return (
     <div className="blogs-container">
       <div className="blog-header">
