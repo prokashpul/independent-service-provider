@@ -4,13 +4,13 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAfoCPzjJM2w_Yp3_rtOfobMwupjA-hNSE",
-  authDomain: "proweb-wedding-photographer.firebaseapp.com",
-  projectId: "proweb-wedding-photographer",
-  storageBucket: "proweb-wedding-photographer.appspot.com",
-  messagingSenderId: "891632399116",
-  appId: "1:891632399116:web:0eb511f1bb9b2dd46d0f29",
-  measurementId: "G-YNQ0F2FPWY",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
+  measurementId: process.env.REACT_APP_measurementId,
 };
 
 // Initialize Firebase
