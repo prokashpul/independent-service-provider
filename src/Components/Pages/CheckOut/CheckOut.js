@@ -8,7 +8,6 @@ import "./CheckOut.css";
 const CheckOut = () => {
   Title("Check Out your Order");
   const [user] = useAuthState(auth);
-
   const email = user?.email;
   const name = user?.displayName;
   const handelSubmit = (event) => {

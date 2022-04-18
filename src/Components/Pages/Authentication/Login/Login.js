@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   useSendPasswordResetEmail,
@@ -15,7 +15,7 @@ const Login = () => {
   Title("Login now");
   const emailRef = useRef("");
   const location = useLocation();
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user, loading, logInError] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, recoveryError] =
     useSendPasswordResetEmail(auth);
@@ -33,17 +33,18 @@ const Login = () => {
   };
   const passwordRecovery = async () => {
     const email = emailRef.current.value;
-    await sendPasswordResetEmail(email);
-    if (recoveryError || sending) {
+
+    if (recoveryError) {
       toast(recoveryError?.message);
-    } else if (email === "") {
+    } else if (email === "" || email === undefined) {
       toast("Please fill up email field");
     } else {
       toast("email send.");
     }
+    await sendPasswordResetEmail(email);
   };
-  if (error) {
-    toast(error?.message);
+  if (logInError) {
+    toast(logInError?.message);
   }
 
   return (
@@ -70,6 +71,7 @@ const Login = () => {
               required
             />
           </div>
+          {sending && <p>sending....</p>}
           <div onClick={() => passwordRecovery()} className="forgat-password">
             Forget Password ?
           </div>
@@ -83,8 +85,8 @@ const Login = () => {
             </div>
           </div>
         </form>
-        <SocialLogin></SocialLogin>
         <ToastContainer></ToastContainer>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

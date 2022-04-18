@@ -5,7 +5,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import auth from "../../../../firebase.init";
 import "./SocialLogin.css";
 const SocialLogin = () => {
@@ -56,7 +56,6 @@ const SocialLogin = () => {
           <img src="https://i.ibb.co/mvGhymg/GitHub.png" alt="Github" />
         </div>
       </div>
-      <ToastContainer></ToastContainer>
     </div>
   );
 };

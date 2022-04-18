@@ -10,7 +10,6 @@ import Registration from "./Components/Pages/Authentication/Registation/Registra
 import RequireAuth from "./RequireAuth/RequireAuth";
 import Footer from "./Components/Sheared/Footer/Footer";
 import CheckOut from "./Components/Pages/CheckOut/CheckOut";
-
 function App() {
   return (
     <>
@@ -31,6 +30,7 @@ function App() {
         <Route path="/register" element={<Registration />}></Route>
         <Route path="*" element={<Error></Error>}></Route>
       </Routes>
+
       <Footer></Footer>
     </>
   );
