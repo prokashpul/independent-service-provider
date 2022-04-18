@@ -56,10 +56,11 @@ const Blogs = () => {
               <h4>
                 What other options do you have to implement authentication?
               </h4>
-              <p>1.Parse</p> <p>2.Back4App</p>
-              <p> 3.AWS Amplify</p>
-              <p> 4.NativeScript</p>
-              <p> 5.RxDB.</p>
+              <p>1.oauth.com/</p>
+              <p>2.auth0.com</p>
+              <p> 3.mocklab.io </p>
+              <p> 4.oauth2.thephpleague.com</p>
+              <p> 5.ory.sh.</p>
             </div>
           </div>
         </article>
@@ -79,7 +80,7 @@ const Blogs = () => {
               <p>2.Functions</p>
               <p>3.Machine Learning</p>
               <p>4.Storage</p>
-              <p>4.Database Storage</p>
+              <p>5.Database Storage</p>
             </div>
           </div>
         </article>
