@@ -31,7 +31,10 @@
 .footer-menu h2 span {
   color: var(--primary-color);
 }
-
+.camera-icon {
+  font-size: 30px;
+  color: red;
+}
 @media (max-width: 920px) {
   .footer-menu {
     flex-wrap: wrap;
@@ -44,6 +47,7 @@
     font-size: 3rem;
   }
 }
+
 @media (max-width: 677px) {
   .footer-menu {
     flex-direction: column;

@@ -8,7 +8,7 @@ const FooterMenu = () => {
         <h2>
           <span>Pro</span>Web
         </h2>
-        <p>Wedding Decoration And Documentation</p>
+        <p>Wedding Photography & Video Shooting</p>
       </div>
       <div className="">
         <h4>NAVIGATION</h4>

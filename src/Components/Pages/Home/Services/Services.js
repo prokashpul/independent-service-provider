@@ -8,7 +8,7 @@ const Services = () => {
 
   return (
     <section className="container services-container">
-      <h2>Service Package</h2>
+      <h2>My Service Package</h2>
       <div className="services">
         {services?.slice(0, 3).map((services) => (
           <SingleServices
